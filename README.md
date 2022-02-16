@@ -1,8 +1,10 @@
-# COMP770_AR
+# COMP770 AR
 
-COMP770 2022 S1 Repository for AR
+Starter repository for COMP770 AR development
 
 This is a pre-packaged Unity project with:
 
 - ARCore/ARKit + ARfoundations
 - SentienceLab script selection
+
+Version: 2022, Semester 1
