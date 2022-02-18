@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: d50969d97e090a94689f1b48f7220cd7, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: d1f098c550007bf4ba914315d147623e, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 73a971dcd352dc84f9fa572b70b9f7c7, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -350,9 +350,11 @@ GameObject:
   - component: {fileID: 409454626}
   - component: {fileID: 409454625}
   - component: {fileID: 409454629}
+  - component: {fileID: 409454632}
+  - component: {fileID: 409454631}
   m_Layer: 0
   m_Name: AR Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -481,6 +483,35 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409454623}
   m_Enabled: 1
+--- !u!54 &409454631
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409454623}
+  serializedVersion: 2
+  m_Mass: 0.1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &409454632
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409454623}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &424516854
 GameObject:
   m_ObjectHideFlags: 0
