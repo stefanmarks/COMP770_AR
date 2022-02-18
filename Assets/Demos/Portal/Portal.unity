@@ -1476,6 +1476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1148262212}
   - component: {fileID: 1148262211}
+  - component: {fileID: 1148262215}
   - component: {fileID: 1148262210}
   - component: {fileID: 1148262214}
   - component: {fileID: 1148262213}
@@ -1570,6 +1571,20 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &1148262215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148262209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9faac369bc4fe4ea8b979d6934e811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sleepTimeout: -1
+  screenBrightness: 1
 --- !u!1 &1901985125
 GameObject:
   m_ObjectHideFlags: 0
