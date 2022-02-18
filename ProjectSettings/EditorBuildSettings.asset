@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Demos/Volcano/Volcano.unity
-    guid: f9d498424ec063f4e9ea19451984107a
   - enabled: 1
     path: Assets/Demos/Portal/Portal.unity
     guid: 208fc4bb294d20f4f9d25e287d51dfe1
