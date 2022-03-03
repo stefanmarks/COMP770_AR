@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 424516857}
   - component: {fileID: 424516856}
   m_Layer: 5
-  m_Name: btn Reset
+  m_Name: btnReset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 1901985128}
   - component: {fileID: 1901985127}
   m_Layer: 5
-  m_Name: MovePhone
+  m_Name: txtMovePhone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

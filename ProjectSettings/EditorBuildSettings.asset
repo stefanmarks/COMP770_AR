@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Demos/Volcano/Volcano.unity
-    guid: f9d498424ec063f4e9ea19451984107a
+    path: Assets/Demos/Portal/Portal.unity
+    guid: 208fc4bb294d20f4f9d25e287d51dfe1
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: ef683f4d5e205304ebeb5a230196dbe4, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 7a42b752369691848beba33f440fe65d, type: 2}
