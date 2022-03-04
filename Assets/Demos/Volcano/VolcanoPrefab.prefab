@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1dcb604f4e6b3a64eaa8775373c0655a, type: 2}
+  - {fileID: 2100000, guid: 8248e14962b094a479ee7b8a7816b8a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   ActionPerformed:
     m_PersistentCalls:
       m_Calls: []
-  ToggleState: 1
+  ToggleState: 0
   ToggleOn:
     m_PersistentCalls:
       m_Calls:
