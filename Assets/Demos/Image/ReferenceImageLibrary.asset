@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5048026634475776323
+  m_GuidHigh: 17338754008569256374
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5738035754411411668
+      m_GuidHigh: 4052370867999439746
+    m_SerializedTextureGuid:
+      m_GuidLow: 77780551965432859
+      m_GuidHigh: 9678700063420849419
+    m_Size: {x: 0.1, y: 0.070898436}
+    m_SpecifySize: 1
+    m_Name: NZ Map
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4887205128254179264
+      m_GuidHigh: 14877834971299635113
+    m_SerializedTextureGuid:
+      m_GuidLow: 1091263520951158761
+      m_GuidHigh: 13604099850923347035
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Place Cup Here
+    m_Texture: {fileID: 0}
