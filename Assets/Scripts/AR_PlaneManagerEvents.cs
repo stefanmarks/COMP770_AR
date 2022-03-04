@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.XR.ARFoundation;
 
 [RequireComponent(typeof(ARPlaneManager))]
-public class ARPlaneManagerEvents : MonoBehaviour
+public class AR_PlaneManagerEvents : MonoBehaviour
 {
 	public UnityEvent      NoPlanesDetected;
 	public UnityEvent<int> PlanesDetected;
@@ -67,6 +67,16 @@ public class ARPlaneManagerEvents : MonoBehaviour
 	}
 
 
+	public void DisableAllPlanes()
+	{
+		foreach (var plane in m_planeManager.trackables)
+		{
+			var planeObject = plane.gameObject;
+			planeObject.SetActive(false);
+		}
+	}
+
+
 	public void ShowAllPlanes()
 	{
 		foreach (var plane in m_planeManager.trackables)
@@ -75,9 +85,14 @@ public class ARPlaneManagerEvents : MonoBehaviour
 			ARPlaneMeshVisualizer visualizer = planeObject.GetComponent<ARPlaneMeshVisualizer>();
 			if (visualizer != null)
 			{
-				// only stop rendering, so the colliders are still working
 				visualizer.enabled = true;
+				Collider col = planeObject.GetComponent<Collider>();
+				if (col != null)
+				{
+					col.enabled = true;
+				}
 			}
+			planeObject.SetActive(true);
 		}
 	}
 

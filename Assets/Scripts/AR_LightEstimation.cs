@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.XR.ARFoundation;
+﻿using UnityEngine.Rendering;
 
 namespace UnityEngine.XR.ARFoundation.Samples
 {
@@ -9,7 +7,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
 	/// for the physical environment as observed by an AR device.
 	/// </summary>
 	[RequireComponent(typeof(Light))]
-	public class LightEstimation : MonoBehaviour
+	public class AR_LightEstimation : MonoBehaviour
 	{
 
 		/// <summary>
