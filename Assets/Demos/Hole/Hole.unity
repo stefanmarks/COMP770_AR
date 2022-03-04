@@ -654,7 +654,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 718168469}
         m_TargetAssemblyTypeName: ARPlaneManagerEvents, Assembly-CSharp
-        m_MethodName: HideAllPlanes
+        m_MethodName: DisableAllPlanes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -743,7 +743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 6746051495915718176, guid: f5dcfc54e34843c47a45e1deb53e938f, type: 3}
-  m_DetectionMode: 1
+  m_DetectionMode: 2
 --- !u!114 &718168466
 MonoBehaviour:
   m_ObjectHideFlags: 0
