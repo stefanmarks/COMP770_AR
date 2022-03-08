@@ -6,6 +6,7 @@ Shader "AR/World Coordinate UV, Transparent"
 		_Color         ("Tint",    Color)                      = (1, 1, 1, 1)
 		_BlendThreshold("Axis Blend Threshold", Range(0, 0.5)) = 0
 		_BlendFactor   ("Axis Blend Factor", Range(1, 20))     = 2
+		_SurfaceOffset ("Surface Offset", Range(0, 0.1))       = 0.05
 	}
 
 	SubShader
@@ -43,6 +44,7 @@ Shader "AR/World Coordinate UV, Transparent"
 			float4    _Color;
 			float     _BlendThreshold;
 			float     _BlendFactor;
+			float     _SurfaceOffset;
 
 			v2f vert(appdata v)
 			{
@@ -51,7 +53,7 @@ Shader "AR/World Coordinate UV, Transparent"
 				UNITY_INITIALIZE_OUTPUT(v2f, o);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
-				o.vertex      = UnityObjectToClipPos(v.vertex);
+				o.vertex      = UnityObjectToClipPos(v.vertex + _SurfaceOffset * v.normal);
 				o.worldPos    = mul(UNITY_MATRIX_M, float4(v.vertex.xyz, 1));
 				o.worldNormal = mul(UNITY_MATRIX_M, float4(v.normal.xyz, 0));
 				
