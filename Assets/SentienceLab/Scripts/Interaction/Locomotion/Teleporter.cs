@@ -41,7 +41,7 @@ namespace SentienceLab
 			public UnityEvent<Transform> OnTeleportEnd;
 		}
 
-		public Events events;		
+		public Events events;
 
 
 		public enum TransitionType
@@ -80,7 +80,7 @@ namespace SentienceLab
 			{
 				if (m_fireStartEvent)
 				{
-					events.OnTeleportStart.Invoke(transform);
+					if (events != null) events.OnTeleportStart.Invoke(transform);
 					m_fireStartEvent = false;
 				}
 
@@ -91,7 +91,7 @@ namespace SentienceLab
 					m_transition.Cleanup();
 					m_transition = null;
 
-					events.OnTeleportEnd.Invoke(transform);
+					if (events != null) events.OnTeleportEnd.Invoke(transform);
 				}
 			}
 		}
