@@ -123,7 +123,7 @@ namespace SentienceLab
 		}
 
 
-		protected void OnGrabStart(InputAction.CallbackContext obj)
+		public void StartGrab()
 		{
 			if ((m_candidateBody != null) || (m_defaultBody != null))
 			{
@@ -163,7 +163,13 @@ namespace SentienceLab
 		}
 
 
-		protected void OnGrabEnd(InputAction.CallbackContext obj)
+		protected void OnGrabStart(InputAction.CallbackContext obj)
+		{
+			StartGrab();
+		}
+
+
+		public void EndGrab()
 		{
 			if (m_activeBody != null)
 			{
@@ -183,6 +189,12 @@ namespace SentienceLab
 		}
 
 
+		protected void OnGrabEnd(InputAction.CallbackContext obj)
+		{
+			EndGrab();
+		}
+		
+		
 		public void FixedUpdate()
 		{
 			// moving a rigid body: apply the right force to get that body to the new target position

@@ -19,11 +19,13 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 	[Tooltip("Action to use for placing the actual object")]
 	public InputActionProperty PlaceObjectAction;
 
-	public UnityEvent MarkerPlaced;
-	public UnityEvent ObjectSpawned;
+	public UnityEvent             PlacementStarted;
+	public UnityEvent             PlacementEnded;
+	public UnityEvent             MarkerPlaced;
+	public UnityEvent<GameObject> ObjectSpawned;
 
 
-	public void Start()
+	protected void Start()
 	{
 		// find anchor management object
 		m_anchorManager = FindObjectOfType<ARAnchorManager>();
@@ -43,13 +45,19 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 		if (PlaceObjectAction.action != null)
 		{
 			PlaceObjectAction.action.performed += delegate { PlaceObject(); };
+			
+			
 			PlaceObjectAction.action.Enable();
 		}
+
+		m_placementActive = false;
 	}
 
 
-	public void OnAimActionPerformed(InputAction.CallbackContext context)
+	protected void OnAimActionPerformed(InputAction.CallbackContext context)
 	{
+		if (!m_placementActive) return;
+
 		// no aiming once spawned
 		if (m_spawnedObject != null) return;
 
@@ -92,6 +100,17 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 	}
 
 
+	public void StartPlacement()
+	{
+		if (!m_placementActive)
+		{
+			RemoveMarker();
+			m_placementActive = true;
+			PlacementStarted?.Invoke();
+		}
+	}
+
+
 	public void RemoveMarker()
 	{
 		if (m_activeMarker != null)
@@ -102,7 +121,18 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 	}
 
 
-	public void OnPlaceActionPerformed(InputAction.CallbackContext context)
+	public void EndPlacement()
+	{
+		if (m_placementActive)
+		{
+			RemoveMarker();
+			m_placementActive = false;
+			PlacementEnded?.Invoke();
+		}
+	}
+
+	
+	protected void OnPlaceActionPerformed(InputAction.CallbackContext context)
 	{
 		PlaceObject();
 	}
@@ -110,7 +140,7 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 
 	public void PlaceObject()
 	{
-		if ((m_activeMarker != null) && (m_spawnedObject == null))
+		if (m_placementActive && (m_activeMarker != null) && (m_spawnedObject == null))
 		{
 			Debug.Log("Placing object ");
 			var spawnPose = new Pose(m_activeMarker.transform.position, m_activeMarker.transform.rotation);
@@ -124,13 +154,15 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 			Destroy(m_activeMarker);
 			m_activeMarker = null;
 
-			ObjectSpawned?.Invoke();
+			ObjectSpawned?.Invoke(m_spawnedObject);
 		}
 	}
 
 
-	protected ARRaycastManager   m_raycastManager;
-	protected ARAnchorManager    m_anchorManager;
+	protected bool                m_placementActive;
+
+	protected ARRaycastManager    m_raycastManager;
+	protected ARAnchorManager     m_anchorManager;
 
 	protected GameObject          m_activeMarker;
 	protected GameObject          m_spawnedObject;
