@@ -13,7 +13,7 @@ public class AR_PlaneManagerEvents : MonoBehaviour
 	{
 		m_planeManager = GetComponent<ARPlaneManager>();
 		m_planeManager.planesChanged += OnPlanesChanged;
-		m_planeCount     = -1;
+		m_planeCount = -1;
 		m_hasChanged = true;
 	}
 

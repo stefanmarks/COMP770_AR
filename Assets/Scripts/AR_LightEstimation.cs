@@ -137,7 +137,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
 			if (args.lightEstimation.ambientSphericalHarmonics.HasValue)
 			{
 				sphericalHarmonics = args.lightEstimation.ambientSphericalHarmonics;
-				RenderSettings.ambientMode = AmbientMode.Skybox;
+				RenderSettings.ambientMode  = AmbientMode.Skybox;
 				RenderSettings.ambientProbe = sphericalHarmonics.Value;
 			}
 			else

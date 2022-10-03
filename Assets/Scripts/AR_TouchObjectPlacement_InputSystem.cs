@@ -28,11 +28,11 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 		// find anchor management object
 		m_anchorManager = FindObjectOfType<ARAnchorManager>();
 
-		m_activeMarker = null;
-		m_lastPlane    = null;
-		m_raycasts     = new List<RaycastResult>();
-		m_raycastResult    = new RaycastResult();
-		m_pointerData  = new PointerEventData(EventSystem.current);
+		m_activeMarker  = null;
+		m_lastPlane     = null;
+		m_raycasts      = new List<RaycastResult>();
+		m_raycastResult = new RaycastResult();
+		m_pointerData   = new PointerEventData(EventSystem.current);
 
 		if (AimAction.action != null)
 		{
@@ -54,7 +54,7 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 		if (m_spawnedObject != null) return;
 
 		// detect potential ARPlanes through the event system (avoiding UI elements by doing so)
-		m_pointerData.position = context.ReadValue<Vector2>(); ;
+		m_pointerData.position = context.ReadValue<Vector2>();
 		EventSystem.current.RaycastAll(m_pointerData, m_raycasts);
 		// find closest result
 		m_raycastResult.Clear();
