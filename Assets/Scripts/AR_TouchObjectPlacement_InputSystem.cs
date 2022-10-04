@@ -19,10 +19,15 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 	[Tooltip("Action to use for placing the actual object")]
 	public InputActionProperty PlaceObjectAction;
 
-	public UnityEvent             PlacementStarted;
-	public UnityEvent             PlacementEnded;
-	public UnityEvent             MarkerPlaced;
-	public UnityEvent<GameObject> ObjectSpawned;
+	[System.Serializable]
+	public struct Events 
+	{
+		public UnityEvent             PlacementStarted;
+		public UnityEvent             PlacementEnded;
+		public UnityEvent             MarkerPlaced;
+		public UnityEvent<GameObject> ObjectSpawned;
+	}
+	public Events events;
 
 
 	protected void Start()
@@ -45,8 +50,6 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 		if (PlaceObjectAction.action != null)
 		{
 			PlaceObjectAction.action.performed += delegate { PlaceObject(); };
-			
-			
 			PlaceObjectAction.action.Enable();
 		}
 
@@ -87,7 +90,7 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 			{
 				// first time > place marker
 				m_activeMarker = Instantiate(PositionMarkerPrefab, m_raycastResult.worldPosition, rotation, this.transform);
-				MarkerPlaced?.Invoke();
+				events.MarkerPlaced?.Invoke();
 			}
 			else
 			{
@@ -106,7 +109,7 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 		{
 			RemoveMarker();
 			m_placementActive = true;
-			PlacementStarted?.Invoke();
+			events.PlacementStarted?.Invoke();
 		}
 	}
 
@@ -127,7 +130,7 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 		{
 			RemoveMarker();
 			m_placementActive = false;
-			PlacementEnded?.Invoke();
+			events.PlacementEnded?.Invoke();
 		}
 	}
 
@@ -154,7 +157,7 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 			Destroy(m_activeMarker);
 			m_activeMarker = null;
 
-			ObjectSpawned?.Invoke(m_spawnedObject);
+			events.ObjectSpawned?.Invoke(m_spawnedObject);
 		}
 	}
 
