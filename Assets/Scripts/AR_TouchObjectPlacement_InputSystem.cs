@@ -54,6 +54,7 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 		}
 
 		m_placementActive = false;
+		m_spawnedObject   = null;
 	}
 
 
