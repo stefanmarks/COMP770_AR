@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6746051495915718181}
   - component: {fileID: 6746051495915718182}
   m_Layer: 0
-  m_Name: PlanePefab
+  m_Name: PlanePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
