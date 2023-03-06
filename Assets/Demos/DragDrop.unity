@@ -856,7 +856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PositionMarkerPrefab: {fileID: 2904408261544626722, guid: 02af99e82d4b79e4599ebd9dfdcae302, type: 3}
   AimAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Aim
       m_Type: 0
@@ -874,7 +874,7 @@ MonoBehaviour:
         m_Action: Aim
         m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   ObjectPrefab: {fileID: 2904408261544626722, guid: 8e4449fa9bde9074e88b22afe0402301, type: 3}
   PlaceObjectAction:
     m_UseReference: 0
@@ -997,9 +997,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 909671678}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
+        - m_Target: {fileID: 76613749}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1007,7 +1007,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 476522086}
           m_TargetAssemblyTypeName: AR_TouchObjectPlacement_InputSystem, Assembly-CSharp
@@ -1020,18 +1020,6 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 76613749}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
           m_CallState: 2
 --- !u!4 &476522087
 Transform:
@@ -1250,6 +1238,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 476522086}
+        m_TargetAssemblyTypeName: AR_TouchObjectPlacement_InputSystem, Assembly-CSharp
+        m_MethodName: EndPlacement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1204363736}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1262,10 +1262,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 476522086}
-        m_TargetAssemblyTypeName: AR_TouchObjectPlacement_InputSystem, Assembly-CSharp
-        m_MethodName: EndPlacement
-        m_Mode: 1
+      - m_Target: {fileID: 103768687}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1914,7 +1914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1204363737
 RectTransform:
   m_ObjectHideFlags: 0
