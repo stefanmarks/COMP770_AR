@@ -34,6 +34,10 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 	{
 		// find anchor management object
 		m_anchorManager = FindObjectOfType<ARAnchorManager>();
+		if (m_anchorManager == null)
+		{
+			Debug.LogWarning("No ARAnchorManager found: You will not be able to place objects");
+		}
 
 		m_activeMarker  = null;
 		m_lastPlane     = null;
@@ -144,7 +148,7 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 
 	public void PlaceObject()
 	{
-		if (m_placementActive && (m_activeMarker != null) && (m_spawnedObject == null))
+		if ((m_anchorManager != null) && m_placementActive && (m_activeMarker != null) && (m_spawnedObject == null))
 		{
 			Debug.Log("Placing object ");
 			var spawnPose = new Pose(m_activeMarker.transform.position, m_activeMarker.transform.rotation);
