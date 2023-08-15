@@ -6,8 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Demos/_DemoAll.unity
+    guid: 35234ae82f5e7bb4899682b97cceddd9
+  - enabled: 1
     path: Assets/Demos/Volcano.unity
     guid: f9d498424ec063f4e9ea19451984107a
+  - enabled: 1
+    path: Assets/Demos/Hole.unity
+    guid: b58bb41cf80d71a47a6e3df150f54846
+  - enabled: 1
+    path: Assets/Demos/Portal.unity
+    guid: 208fc4bb294d20f4f9d25e287d51dfe1
+  - enabled: 1
+    path: Assets/Demos/EnvironmentLight.unity
+    guid: 23aa326960eeda845995f17d0d3a12c6
+  - enabled: 1
+    path: Assets/Demos/DragDrop.unity
+    guid: dc336a9f07de5af4b9119a0dcaafffaf
+  - enabled: 1
+    path: Assets/Demos/Images.unity
+    guid: 5d92e2fd2f4b7624a98793d2e3c6676c
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: ef683f4d5e205304ebeb5a230196dbe4, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 7a42b752369691848beba33f440fe65d, type: 2}

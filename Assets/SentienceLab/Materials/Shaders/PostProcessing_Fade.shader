@@ -9,6 +9,8 @@
 	
 	SubShader
 	{
+		Tags { "Queue"="Overlay+100" "IgnoreProjector"="True" "RenderType"="Overlay" "ForceNoShadowCasting" = "True" }
+    
 		//Rendering settings
 		Cull   Off 
 		ZTest  Always
