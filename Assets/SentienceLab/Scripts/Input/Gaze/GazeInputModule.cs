@@ -73,7 +73,7 @@ public class GazeInputModule : BaseInputModule
 	public float clickTime = 0.1f;  // Based on default time for a button to animate to Pressed.
 
 	/// The pixel through which to cast rays, in viewport coordinates.  Generally, the center
-	/// pixel is best, assuming a monoscopic camera is selected as the `Canvas`' event camera.
+	/// pixel is best, assuming a monoscopic camera is selected as the `Canvas` event camera.
 	[HideInInspector]
 	public Vector2 hotspot = new Vector2(0.5f, 0.5f);
 
@@ -243,10 +243,15 @@ public class GazeInputModule : BaseInputModule
 
 		if (DrawDebugGazeRay && (pointerData.enterEventCamera != null))
 		{
+			Color      col = Color.red;
+			GameObject go  = pointerData.pointerCurrentRaycast.gameObject;
+			GameObject pch = (go != null) ? ExecuteEvents.GetEventHandler<IPointerClickHandler>(go) : null;
+			if (pch          != null               ) { col = Color.yellow; }
+			if (triggerState == TriggerState.Active) { col = Color.green;  }
 			Debug.DrawLine(
 				pointerData.enterEventCamera.transform.position,
 				pointerData.pointerCurrentRaycast.worldPosition,
-				Color.red
+				col
 			);
 		}
 
@@ -285,26 +290,11 @@ public class GazeInputModule : BaseInputModule
 		{
 			eventCamera = pointerData.enterEventCamera;
 		}
-
+		
 		GameObject gazeObject           = GetCurrentGameObject(); // Get the gaze target
 		Vector3    intersectionPosition = GetIntersectionPosition();
-
-		// get special components
-		InteractiveRigidbody irb = (gazeObject != null) ? gazeObject.GetComponentInParent<InteractiveRigidbody>() : null;
-		TeleportTarget       tt  = (gazeObject != null) ? gazeObject.GetComponentInParent<TeleportTarget>() : null;
-
-		// is the current object interactive?
-		bool isInteractive = 
-			(pointerData.pointerPress != null) ||
-			(ExecuteEvents.GetEventHandler<IPointerClickHandler>(gazeObject) != null) ||
-			(irb != null);
-
-		// consider teleport targets out of range 
-		if ((tt != null) && (tt.AimingController == null))
-		{
-			// teleport target, but not considered by the teleport controller
-			isInteractive = false;
-		}
+		bool       isInteractive        = (pointerData.pointerPress != null) ||
+		                                  ExecuteEvents.GetEventHandler<IPointerClickHandler>(gazeObject) != null;
 
 		if (gazeObject == previousGazedObject)
 		{
@@ -354,14 +344,9 @@ public class GazeInputModule : BaseInputModule
 			{
 				gazePointer.OnGazeStart(eventCamera, gazeObject, intersectionPosition, isInteractive);
 				gazeStartTime = Time.unscaledTime;
-				fuseState     = FuseState.Arming;
-
-				// consider gaze modifier	
 				GazeBehaviourModifier gbm = gazeObject.GetComponentInParent<GazeBehaviourModifier>();
 				fuseTime  = (gbm != null) && (gbm.fuseTimeOverride > 0) ? gbm.fuseTimeOverride : defaultFuseTime;
-				
-				// interactive rigidbodies don't auto-trigger
-				if (irb != null) { fuseTime = float.PositiveInfinity; }
+				if (fuseTime > 0) fuseState = FuseState.Arming;
 			}
 		}
 	}
