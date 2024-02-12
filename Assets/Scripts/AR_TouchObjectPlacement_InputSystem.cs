@@ -100,8 +100,7 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 			else
 			{
 				// after that, only update position
-				m_activeMarker.transform.position = m_raycastResult.worldPosition;
-				m_activeMarker.transform.rotation = rotation;
+				m_activeMarker.transform.SetPositionAndRotation(m_raycastResult.worldPosition, rotation);
 			}
 			m_lastPlane = plane;
 		}

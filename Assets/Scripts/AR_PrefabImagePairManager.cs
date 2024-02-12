@@ -33,10 +33,10 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
 		[SerializeField]
 		[HideInInspector]
-		List<NamedPrefab> m_PrefabsList = new List<NamedPrefab>();
+		List<NamedPrefab> m_PrefabsList = new();
 
-		Dictionary<Guid, GameObject> m_PrefabsDictionary = new Dictionary<Guid, GameObject>();
-		Dictionary<Guid, GameObject> m_Instantiated = new Dictionary<Guid, GameObject>();
+		Dictionary<Guid, GameObject> m_PrefabsDictionary = new();
+		Dictionary<Guid, GameObject> m_Instantiated      = new();
 		ARTrackedImageManager m_TrackedImageManager;
 
 		[SerializeField]
@@ -123,7 +123,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
 		[CustomEditor(typeof(AR_PrefabImagePairManager))]
 		class PrefabImagePairManagerInspector : Editor
 		{
-			List<XRReferenceImage> m_ReferenceImages = new List<XRReferenceImage>();
+			List<XRReferenceImage> m_ReferenceImages = new();
 			bool m_IsExpanded = true;
 
 			bool HasLibraryChanged(XRReferenceImageLibrary library)
