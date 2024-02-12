@@ -33,7 +33,7 @@ public class AR_TouchObjectPlacement_InputSystem : MonoBehaviour
 	protected void Start()
 	{
 		// find anchor management object
-		m_anchorManager = FindObjectOfType<ARAnchorManager>();
+		m_anchorManager = FindAnyObjectByType<ARAnchorManager>();
 		if (m_anchorManager == null)
 		{
 			Debug.LogWarning("No ARAnchorManager found: You will not be able to place objects");

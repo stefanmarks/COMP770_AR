@@ -15,7 +15,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
 		/// </summary>
 		public void Start()
 		{
-			m_CameraManager = FindObjectOfType<ARCameraManager>();
+			m_CameraManager = FindAnyObjectByType<ARCameraManager>();
 			if (m_CameraManager == null)
 			{
 				Debug.LogWarning("No camera manager found for light estimation");
