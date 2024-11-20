@@ -2,7 +2,7 @@ Shader "FX/Shadow Receiver"
 {
 	Properties
 	{
-		_ShadowColor("Shadow Color", COLOR) = (0,0,0,1)
+		_ShadowColor("Shadow Color", COLOR)       = (0,0,0,1)
 		_LightmapOffset("Lightmap Offset", COLOR) = (.5, 0.5, 0.5, 1)
 	}
 

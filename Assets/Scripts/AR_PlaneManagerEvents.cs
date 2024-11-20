@@ -12,13 +12,13 @@ public class AR_PlaneManagerEvents : MonoBehaviour
 	public void Start()
 	{
 		m_planeManager = GetComponent<ARPlaneManager>();
-		m_planeManager.planesChanged += OnPlanesChanged;
+		m_planeManager.trackablesChanged.AddListener(OnTrackablesChanged);
 		m_planeCount = -1;
 		m_hasChanged = true;
 	}
 
 
-	private void OnPlanesChanged(ARPlanesChangedEventArgs obj)
+	private void OnTrackablesChanged(ARTrackablesChangedEventArgs<ARPlane> eventArgs)
 	{
 		m_hasChanged = true;
 	}
