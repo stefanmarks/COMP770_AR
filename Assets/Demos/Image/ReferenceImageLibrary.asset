@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 77780551965432859
       m_GuidHigh: 9678700063420849419
-    m_Size: {x: 0.1, y: 0.070898436}
+    m_Size: {x: 0.2, y: 0.28139737}
     m_SpecifySize: 1
     m_Name: NZ Map
     m_Texture: {fileID: 0}
@@ -33,7 +33,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 1091263520951158761
       m_GuidHigh: 13604099850923347035
-    m_Size: {x: 0.1, y: 0.1}
+    m_Size: {x: 0.18, y: 0.18}
     m_SpecifySize: 1
     m_Name: Place Cup Here
     m_Texture: {fileID: 0}
